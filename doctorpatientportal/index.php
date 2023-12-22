@@ -129,10 +129,14 @@ if (isset($_POST['btn_login'])) {
 	}
 
 	button.list-group-item:hover {
-		background: #337ab7;
+		background: #059216;
 		color: white;
 		border-left: 6px solid #F03333;
 		transition: 0.5s;
+	}
+
+	button.list-group-item>a:hover {
+		color: white !important;
 	}
 
 	.aa {
@@ -197,12 +201,12 @@ if (isset($_POST['btn_login'])) {
 
 
 				<ul class="nav navbar-nav pull-right">
-					<li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-					<li><a href="about.php"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
-					<li><a href="contact.php"><span class="glyphicon glyphicon-earphone"></span> Contact Us</a></li>
-					<li><a href="help.php"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
+					<li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+					<li><a href="about.php"><span class="glyphicon glyphicon-info-sign"></span> Sobre</a></li>
+					<li><a href="contact.php"><span class="glyphicon glyphicon-earphone"></span> Contato</a></li>
+					<li><a href="help.php"><span class="glyphicon glyphicon-question-sign"></span> Ajuda</a></li>
 					<li class="a"><a data-toggle="modal" data-target="#login" href="#"><span class="glyphicon glyphicon-user"></span> Login</a></li>
-					<li class="ar"><a data-toggle="modal" data-target="#register" href="#"><span class="glyphicon glyphicon-registration-mark"></span> Register</a></li>
+					<li class="ar"><a data-toggle="modal" data-target="#register" href="#"><span class="glyphicon glyphicon-registration-mark"></span> Registrar</a></li>
 				</ul>
 			</div>
 
@@ -218,17 +222,17 @@ if (isset($_POST['btn_login'])) {
 
 			<div id="co" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav pull-right">
-					<li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-					<li><a href="about.php"><span class="glyphicon glyphicon-info-sign"></span> About</a></li>
-					<li><a href="contact.php"><span class="glyphicon glyphicon-earphone"></span> Contact Us</a></li>
-					<li><a href="help.php"><span class="glyphicon glyphicon-question-sign"></span> Help</a></li>
+					<li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+					<li><a href="about.php"><span class="glyphicon glyphicon-info-sign"></span> Sobre</a></li>
+					<li><a href="contact.php"><span class="glyphicon glyphicon-earphone"></span> Contato</a></li>
+					<li><a href="help.php"><span class="glyphicon glyphicon-question-sign"></span> Ajuda</a></li>
 					<?php if ($type == "doc") { ?>
-						<li class="a"><a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Hi <?php echo $user ?>
+						<li class="a"><a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Olá <?php echo $user ?>
 								<span class="caret"></span></a>
 							<ul style="float:left; margin-left:-35%;" class="dropdown-menu">
-								<li><a data-toggle="modal" href="#profiletab"><span class="glyphicon glyphicon-eye-open"></span> Your Profile</a></li>
+								<li><a data-toggle="modal" href="#profiletab"><span class="glyphicon glyphicon-eye-open"></span> Seu Perfil</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="doctor.php"><span class="glyphicon glyphicon-th-list"></span> Your Dashboard</a></li>
+								<li><a href="doctor.php"><span class="glyphicon glyphicon-th-list"></span> Seu Painel</a></li>
 								<li role="separator" class="divider"></li>
 								<li><a href="logout.php"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
 							</ul>
@@ -237,14 +241,14 @@ if (isset($_POST['btn_login'])) {
 						</li>
 					<?php } ?>
 					<?php if ($type == "pat") { ?>
-						<li class="a"><a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Hi <?php echo $user ?>
+						<li class="a"><a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Olá <?php echo $user ?>
 								<span class="caret"></span></a>
 							<ul style="float:left; margin-left:-35%;" class="dropdown-menu">
-								<li><a href="doclist.php"><span class="glyphicon glyphicon-list-alt"></span> Quick Doctor List</a></li>
+								<li><a href="doclist.php"><span class="glyphicon glyphicon-list-alt"></span> Lista rápida de médicos</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a data-toggle="modal" href="#profiletab2"><span class="glyphicon glyphicon-eye-open"></span> Your Profile</a></li>
+								<li><a data-toggle="modal" href="#profiletab2"><span class="glyphicon glyphicon-eye-open"></span> Seu Perfil</a></li>
 								<li role="separator" class="divider"></li>
-								<li><a href="patient.php"><span class="glyphicon glyphicon-th-list"></span> Your Dashboard</a></li>
+								<li><a href="patient.php"><span class="glyphicon glyphicon-th-list"></span> Seu Painel</a></li>
 								<li role="separator" class="divider"></li>
 								<li><a href="logout.php"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
 							</ul>
@@ -253,10 +257,10 @@ if (isset($_POST['btn_login'])) {
 						</li>
 					<?php } ?>
 					<?php if ($type == "admin") { ?>
-						<li class="a"><a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Hi <?php echo $user ?>
+						<li class="a"><a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Olá <?php echo $user ?>
 								<span class="caret"></span></a>
 							<ul style="float:left; margin-left:-35%;" class="dropdown-menu">
-								<li><a href="adminpanel.php"><span class="glyphicon glyphicon-th-list"></span> Your Dashboard</a></li>
+								<li><a href="adminpanel.php"><span class="glyphicon glyphicon-th-list"></span> Seu Painel</a></li>
 								<li role="separator" class="divider"></li>
 								<li><a href="logout.php"><span class="glyphicon glyphicon-off"></span> Logout</a></li>
 							</ul>
@@ -273,18 +277,18 @@ if (isset($_POST['btn_login'])) {
 	<div class="container">
 		<h2 style="position:absolute;"><a class="nome_portal" href="#ab" data-toggle="collapse">Bem Vindo ao Portal do Medico</h2></a>
 		<div style="position:absolute; margin-top:15%;" class="collapse" id="ab">
-			<div style="width:100%; margin-top:-10%;" class="row">
+			<div style="width:100%; margin-top:-13%;" class="row">
 				<div class="col-md-6">
 					<div style="text-align:justify; opacity:0.8" class="well">
-						<font size="8px"><b>P</b></font>atient portals are secure, convenient online tools that help you to manage and keep track of you and your family’s and whanau's health 24/7.
-						Use it to book appointments, access your appointments history, You can even book advance appointments for next 5 days.
-						It’s safe, easy to use and a great way to keep tabs on your health whenever you need to.
-						VIEW YOUR HEALTH RECORDS SECURELY ONLINE WITH YOUR PATIENT PORTAL.
-						The easy way to keep up to date with your health information.
+						<p style="font-size: 15px;"><b style="font-size: 25px;">P</b>ortais de atendimento são ferramentas on-line seguras e convenientes que ajudam você a gerenciar e monitorar a saúde de você e de sua família e de quem quer que seja, 24 horas por dia, 7 dias por semana.
+							Use-o para agendar compromissos, acessar seu histórico de compromissos. Você pode até agendar compromissos antecipados para os próximos 5 dias.
+							É seguro, fácil de usar e uma ótima maneira de controlar sua saúde sempre que precisar.
+							VEJA SEUS REGISTROS DE SAÚDE ON-LINE COM SEGURANÇA COM SEU PORTAL DO PACIENTE.
+							A maneira fácil de manter-se atualizado com suas informações de saúde.</p>
 					</div>
 				</div>
 				<div class="col-md-6">
-					<img style="margin-left:10%;float:left; margin-top:-5%;opacity:0.8;" width="270px" src="img/logom.png" />
+					<img style="margin-left:10%;float:left; margin-top:-5%;opacity:0.8;" width="250px" src="img/logo.png" />
 				</div>
 			</div>
 		</div>
@@ -293,40 +297,40 @@ if (isset($_POST['btn_login'])) {
 			<p>&nbsp;</p>
 			<div style="margin-top:-7%;" class="row">
 				<div class="col-md-4">
-					<div style="margin-left:-12%; width:115%; float:left;" class="panel panel-primary">
-						<div class="panel-heading"><span class="glyphicon glyphicon-cloud"></span> Services</div>
+					<div style="margin-left:-12%; width:115%; float:left; background-color: #72dd7e; border: #72dd7e;" class="panel panel-primary">
+						<div class="panel-heading" style="background-color: #059216; border: #72dd7e;"><span class="glyphicon glyphicon-cloud"></span> Serviços</div>
 						<div class="panel-body">
 							<div style="font-family:calibri;" class="list-group">
 								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;
-									<a class="aa" href="doclist.php">Get Quick Doctor List</a></button>
-								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Make Appointments Quickly</button>
+									<a class="aa" href="doclist.php">Obtenha uma lista rápida de médicos</a></button>
+								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Faça compromissos rapidamente</button>
 								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;
-									<a class="aa" href="doclist.php">Only Verified Doctor Here</a></button>
-								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;All Types of doctor available</button>
-								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Message System Between Doctor Patient</button>
+									<a class="aa" href="doclist.php">Apenas Médico Verificado Ela</a></button>
+								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Todos os tipos de médico disponíveis</button>
+								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-cloud"></span>&nbsp;&nbsp;Sistema de mensagens entre médico e paciente</button>
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<div class="col-md-4">
-					<div style="margin-left:-2%; width:110%; float:left;" class="panel panel-primary">
-						<div class="panel-heading"><span class="glyphicon glyphicon-ok-sign"></span> Benifits</div>
+					<div style="margin-left:-2%; width:110%; float:left; background-color: #72dd7e; border: #72dd7e;" class="panel panel-primary">
+						<div class="panel-heading" style="background-color: #059216; border: #72dd7e;"><span class="glyphicon glyphicon-ok-sign"></span> Beneficios</div>
 						<div class="panel-body">
 							<div style="font-family:calibri;" class="list-group">
-								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;&nbsp;No need to wait in line for appointment</button>
-								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;&nbsp;Manage Appointment in your own Dashboard</button>
-								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;&nbsp;Personal Message System</button>
-								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;&nbsp;One Step to fill Appointment Form</button>
-								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;&nbsp;Manage your profile and more..</button>
+								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;&nbsp;Sem necessidade de esperar na fila</button>
+								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;&nbsp;Gerenciar compromisso em seu próprio painel</button>
+								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;&nbsp;Sistema de mensagens pessoais</button>
+								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;&nbsp;Preencha o formulário de consulta</button>
+								<button type="button" class="list-group-item"><span class="glyphicon glyphicon-ok-circle"></span>&nbsp;&nbsp;Gerencie seu perfil e muito mais...</button>
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<div class="col-md-4">
-					<div style="margin-left:3%; width:110%; float:left;" class="panel panel-primary">
-						<div class="panel-heading"><span class="glyphicon glyphicon-comment"></span> Testimonials</div>
+					<div style="margin-left:3%; width:110%; float:left; background-color: #72dd7e; border: #72dd7e;" class="panel panel-primary">
+						<div class="panel-heading" style="background-color: #059216; border: #72dd7e;"><span class="glyphicon glyphicon-comment"></span> Depoimentos</div>
 						<div class="panel-body">
 							<?php
 							$q = "SELECT feed,pid FROM feedback AS feed ORDER BY RAND() LIMIT 1";
@@ -382,11 +386,11 @@ if (isset($_POST['btn_login'])) {
 				$res = mysqli_fetch_array($r2);
 				$pen = $res['cnt'];
 				?>
-				<b>Total Verified Doctor <span class="badge"><?php echo $doc; ?></span> |&nbsp; Total Patient Registered <span class="badge"><?php echo $pat; ?></span> |&nbsp; Total Appointments <span class="badge"><?php echo $pen; ?></span> |</b>
+				<b>Médicos Verificado <span class="badge"><?php echo $doc; ?></span> |&nbsp; Pacientes cadastrados <span class="badge"><?php echo $pat; ?></span> |&nbsp; Agendamentos marcados <span class="badge"><?php echo $pen; ?></span> |</b>
 			</div>
 		</div>
 		<div style="width:102.5%; margin-left:-1.2%;margin-top:-5%;" class="container footer">
-			<center>&copy; 2017 | All Rights Reserved | Themed By <a style="color:white; cursor:pointer; target=" _blank" href="https://www.facebook.com/ankitthegr8">@nkit</a> |
+			<center>&copy; 2023 | Todos os direitos reservados | By <a style="color:white; cursor:pointer; target=" _blank" href="https://www.facebook.com/ankitthegr8">@nkit & customização Juan</a> |
 				<a style="color:white;" href="sitemap.php">Sitemap</a>
 			</center>
 		</div>

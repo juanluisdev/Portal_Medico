@@ -150,7 +150,7 @@ blockquote:before {
 }
 
 .footer {
-	background: #333;
+	background: #059216;
 	padding: 5px;
 	color: white;
 	float: left;
@@ -159,6 +159,10 @@ blockquote:before {
 .footer:hover {
 	opacity: 0.9;
 	transition: 0.5s;
+}
+
+.badge {
+	background: #059216;
 }
 
 .nav-tabs>li.active>a,
