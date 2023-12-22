@@ -186,7 +186,7 @@ if (isset($_POST['btn_login'])) {
 
 	<?php if (!isset($_SESSION['useremail'])) { ?>
 
-		<div style="padding:25px; border-top-left-radius:0.5em; border-top-right-radius:0.5em;" class="mainmenu container nav navbar-inverse" data-spy="affix" data-offset-top="100">
+		<div style="padding:25px 100px; border-top-left-radius:0.5em; border-top-right-radius:0.5em;" class="mainmenu container nav navbar-inverse" data-spy="affix" data-offset-top="100">
 			<button type="button" style="background:#005173; border-color:#005173;" class="navbar-toggle" data-toggle="collapse" data-target="#coo">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -208,7 +208,7 @@ if (isset($_POST['btn_login'])) {
 
 		</div><?php } else {
 				?>
-		<div style="padding:25px; border-top-left-radius:0.5em; border-top-right-radius:0.5em;" class="mainmenu container nav navbar-inverse" data-spy="affix" data-offset-top="100">
+		<div style="padding:25px 100px; border-top-left-radius:0.5em; border-top-right-radius:0.5em;" class="mainmenu container nav navbar-inverse" data-spy="affix" data-offset-top="100">
 			<button style="border:0px;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#co">
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
@@ -271,7 +271,7 @@ if (isset($_POST['btn_login'])) {
 
 	<?php } ?>
 	<div class="container">
-		<h2 style="position:absolute;"><a href="#ab" data-toggle="collapse">Welcome To Doctor Patient Portal</h2></a>
+		<h2 style="position:absolute;"><a class="nome_portal" href="#ab" data-toggle="collapse">Bem Vindo ao Portal do Medico</h2></a>
 		<div style="position:absolute; margin-top:15%;" class="collapse" id="ab">
 			<div style="width:100%; margin-top:-10%;" class="row">
 				<div class="col-md-6">
@@ -288,7 +288,7 @@ if (isset($_POST['btn_login'])) {
 				</div>
 			</div>
 		</div>
-		<img style="margin-top:0.0%;" class="dppbanner" src="img/220356.jpg" />
+		<img style="margin-top:0;" class="dppbanner" src="img/220356.jpg" />
 		<div style="margin-left:-1.3%; width:102.7%; float:left; border-radius:0em;" class="jb jumbotron">
 			<p>&nbsp;</p>
 			<div style="margin-top:-7%;" class="row">
