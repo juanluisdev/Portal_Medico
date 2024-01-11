@@ -333,14 +333,23 @@ if (isset($_POST['btn_login'])) {
 						<div class="panel-heading" style="background-color: #059216; border: #72dd7e;"><span class="glyphicon glyphicon-comment"></span> Depoimentos</div>
 						<div class="panel-body">
 							<?php
-							$q = "SELECT feed,pid FROM feedback AS feed ORDER BY RAND() LIMIT 1";
+							$q = "SELECT feed, pid FROM feedback ORDER BY RAND() LIMIT 1";
 							$rr = mysqli_query($con, $q);
-							$res = mysqli_fetch_array($rr);
-							$p = $res['feed'];
-							$d = $res['pid'];
 
+							if ($rr && mysqli_num_rows($rr) > 0) {
+								$res = mysqli_fetch_array($rr);
+								if ($res) {
+									$p = $res['feed'];
+									$d = $res['pid'];
+								} else {
+									$p = 0;
+								}
+							} else {
+								$rr = 0;
+							}
+							$res = "";
 							if ($res == "") {
-								echo "No feedback given yet";
+								echo "Nenhum feedback dado ainda";
 							} elseif ($p && $d != "") {
 								$qq = "select * from patient where pid='$d' ";
 
@@ -390,8 +399,8 @@ if (isset($_POST['btn_login'])) {
 			</div>
 		</div>
 		<div style="width:102.5%; margin-left:-1.2%;margin-top:-5%;" class="container footer">
-			<center>&copy; 2023 | Todos os direitos reservados | By <a style="color:white; cursor:pointer; target=" _blank" href="https://www.facebook.com/ankitthegr8">@nkit & customização Juan</a> |
-				<a style="color:white;" href="sitemap.php">Sitemap</a>
+			<center>&copy; 2023 | Todos os direitos reservados | By <a style="color:white; cursor:pointer; target=" _blank" href=#>Juan</a> |
+				<a style="color:white;" href="sitemap.php">Portal do Medico</a>
 			</center>
 		</div>
 	</div>
@@ -438,11 +447,11 @@ if (isset($_POST['btn_login'])) {
 
 						<div class="col-md-4">
 							<div style="font-family:calibri; float:left;margin-left:-70%;">
-								<label>Name </label>&nbsp;&nbsp; : <?php echo $user; ?><br>
+								<label>Nome </label>&nbsp;&nbsp; : <?php echo $user; ?><br>
 								<label>Email </label>&nbsp;&nbsp; : <?php echo $email; ?><br>
-								<label>Phone </label>&nbsp;: <?php echo "+91-$phone"; ?><br>
-								<label>Gender </label>&nbsp;:&nbsp;<?php echo $sex; ?><br>
-								<label>Age </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;<?php echo $age; ?><br>
+								<label>Telefone </label>&nbsp;: <?php echo "+91-$phone"; ?><br>
+								<label>Gênero </label>&nbsp;:&nbsp;<?php echo $sex; ?><br>
+								<label>Idade </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;<?php echo $age; ?><br>
 
 							</div>
 						</div>
@@ -489,9 +498,9 @@ if (isset($_POST['btn_login'])) {
 							<div style="font-family:calibri; float:left;margin-left:-70%;">
 								<label>Name </label>&nbsp;&nbsp; : <?php echo $user; ?><br>
 								<label>Email </label>&nbsp;&nbsp; : <?php echo $emailp; ?><br>
-								<label>Phone </label>&nbsp;: <?php echo "+91-$mob"; ?><br>
-								<label>Gender </label>&nbsp;:&nbsp;<?php echo $sexp; ?><br>
-								<label>Age </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;<?php echo $agep; ?><br>
+								<label>Telefone </label>&nbsp;: <?php echo "+91-$mob"; ?><br>
+								<label>Gênero </label>&nbsp;:&nbsp;<?php echo $sexp; ?><br>
+								<label>Idade </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :&nbsp;&nbsp;<?php echo $agep; ?><br>
 
 							</div>
 						</div>
@@ -510,7 +519,7 @@ if (isset($_POST['btn_login'])) {
 			<div class="modal-content">
 				<div style="background:#005173; color:white;" class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:white;" aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-user"></span> Login Form Portal</h4>
+					<h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-user"></span> Login no Portal</h4>
 				</div>
 				<div class="modal-body">
 					<br>
@@ -526,8 +535,8 @@ if (isset($_POST['btn_login'])) {
 						<div class="modal-footer">
 							<center><input type="submit" value="Login" name="btn_login" class="btn btn-success"></center>
 						</div>
-						<center><a style="font-family:calibri;" href="forgetpass.php">Forget Password?</a></center>
-						<center><input type="checkbox" name="remember" /> Remember me? </center>
+						<center><a style="font-family:calibri;" href="forgetpass.php">Esqueceu a senha?</a></center>
+						<center><input type="checkbox" name="remember" /> lembrar me? </center>
 					</form>
 				</div>
 			</div>
@@ -541,15 +550,15 @@ if (isset($_POST['btn_login'])) {
 			<div class="modal-content">
 				<div style="background:#005173; color:white;" class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span style="color:white;" aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel2"><span class="glyphicon glyphicon-saved" aria-hidden="true"></span> Register to Portal</h4>
+					<h4 class="modal-title" id="myModalLabel2"><span class="glyphicon glyphicon-saved" aria-hidden="true"></span> Registro no Portal</h4>
 				</div>
 				<div class="modal-body">
 
 					<ul class="nav nav-tabs" role="tablist">
 						<li role="presentation" class="active"><a href="#patient" aria-controls="patient" role="tab" data-toggle="tab">
-								<span class="glyphicon glyphicon-user"></span> Patient</a></li>
+								<span class="glyphicon glyphicon-user"></span> Paciente</a></li>
 						<li role="presentation"><a href="#doctor" aria-controls="doctor" role="tab" data-toggle="tab">
-								<span class="glyphicon glyphicon-education"></span> Doctor</a></li>
+								<span class="glyphicon glyphicon-education"></span> Doutor</a></li>
 					</ul>
 					<div class="tab-content">
 						<!--Patient Registration-->
@@ -563,26 +572,26 @@ if (isset($_POST['btn_login'])) {
 								<input type="text" name="adridpt" class="form-control" required placeholder="Enter your Aadhar ID"><br>
 								<input type="text" name="paddress" class="form-control" required placeholder="Enter your address"><br>
 
-								<label>Gender : </label>
-								<input type="radio" value="Male" name="pgender" required> Male
-								<input type="radio" value="Female" name="pgender" required> Female <br></br>
+								<label>Gênero : </label>
+								<input type="radio" value="Male" name="pgender" required> Masculino
+								<input type="radio" value="Female" name="pgender" required> Feminino <br></br>
 								<div class="input-group form-group ">
-									<span class="input-group-addon">+91</span>
+									<span class="input-group-addon">+55</span>
 									<input type="number" name="p_phone" class="form-control" id="user" maxlength="10" placeholder="Enter your contact no." required>
 								</div>
-								<label>Your Picture</label>
+								<label>Sua foto</label>
 								<input type="file" class="form-control" required name="pupload" /><br>
 								<label data-toggle="tooltip" data-placement="right" title="Choose and remember answer carefully at the time of forget password it will be use">Select Security Question*</label>
 								<br>
 								<select name="sques" style="padding:5px">
-									<option>Choose a security question</option>
-									<option value="Whats the place where your mother born?">Whats the place where your mother born?</option>
-									<option value="What is your first vehice no.?">What is your first vehice no.?</option>
-									<option value="What is your first pet name?">What is your first pet name?</option>
-									<option value="What is your childood friend name?">What is your best friend name?</option>
+									<option>Escolha uma pergunta de segurança</option>
+									<option value="Whats the place where your mother born?">Qual é o lugar onde sua mãe nasceu?</option>
+									<option value="What is your first vehice no.?">Qual é o seu primeiro veículo?</option>
+									<option value="What is your first pet name?">Qual é o seu primeiro nome de animal de estimação?</option>
+									<option value="What is your childood friend name?">Qual é o nome do seu melhor amigo?</option>
 								</select>
 								<br><br>
-								<label>Your Answer</label>
+								<label>Sua resposta</label>
 								<input type="text" class="form-control" placeholder="Enter your answer" required name="answer" /><br>
 								<center><input type="submit" value="Register" name="btn_pat" class="btn btn-danger">
 									<input type="button" value="Reset" onclick="rset()" class="btn btn-warning">
@@ -599,39 +608,39 @@ if (isset($_POST['btn_login'])) {
 								<input type="number" name="age" class="form-control" required placeholder="Enter your age"><br>
 								<input type="password" name="password" class="form-control" required placeholder="Enter your password"><br>
 								<input type="text" name="address" class="form-control" required placeholder="Enter your address"><br>
-								<label>Gender : </label>
-								<input type="radio" value="Male" name="gender" required> Male
-								<input type="radio" value="Female" name="gender" required> Female <br></br>
+								<label>Gênero : </label>
+								<input type="radio" value="Male" name="gender" required> Masculino
+								<input type="radio" value="Female" name="gender" required> Feminino <br></br>
 								<input type="text" name="docid" class="form-control" required placeholder="Enter your Doctor ID"><br>
 								<input type="text" name="adrid" class="form-control" required placeholder="Enter your Aadhar ID"><br>
-								<label>Specialist in : </label>
+								<label>Especialista em: </label>
 								<select style="color:solid #ccc; border-radius:0.2em; padding:5px;" name="doccat">
-									<option>Choose</option>
-									<option value="Denitst">Denitst</option>
-									<option value="Cardiologist">Cardiologist</option>
-									<option value="Allergist">Allergist</option>
-									<option value="Physcit">Physcit</option>
-									<option value="Gynoclogist">Gyncologist</option>
-								</select><sup style="color:red;"> *Required</sup><br></br>
+									<option>Escolha</option>
+									<option value="Denitst">Dentista</option>
+									<option value="Cardiologist">Cardiologista</option>
+									<option value="Allergist">Alergista</option>
+									<option value="Physcit">Psicologo</option>
+									<option value="Gynoclogist">Ginecologista</option>
+								</select><sup style="color:red;"> *Requerido</sup><br></br>
 								<div class="input-group form-group ">
-									<span class="input-group-addon">+91</span>
+									<span class="input-group-addon">+55</span>
 									<input type="number" name="phone" class="form-control" id="user" maxlength="10" placeholder="Enter your contact no." required>
 								</div>
-								<label data-toggle="tooltip" data-placement="right" title="PDF File Supported Only">Upload Your ID*</label>
+								<label data-toggle="tooltip" data-placement="right" title="PDF File Supported Only">Upload seu ID*</label>
 								<input type="file" class="form-control" name="file" required /><br>
-								<label>Your Picture</label>
+								<label>Sua foto</label>
 								<input type="file" class="form-control" required name="newpic" /><br>
 								<label data-toggle="tooltip" data-placement="right" title="Choose and remember answer carefully at the time of forget password it will be use">Select Security Question*</label>
 								<br>
 								<select name="psques" style="padding:5px">
-									<option value="Choose a security question">Choose a security question</option>
-									<option value="Whats the place where your mother born?">Whats the place where your mother born?</option>
-									<option value="What is your first vehice no.?">What is your first vehice no.?</option>
-									<option value="What is your first pet name?">What is your first pet name?</option>
-									<option value="What is your childood friend name?">What is your best friend name?</option>
+									<option value="Choose a security question">Escolha uma pergunta de segurança</option>
+									<option value="Whats the place where your mother born?">Qual é o lugar onde sua mãe nasceu?</option>
+									<option value="What is your first vehice no.?">Qual ​​é o número do seu primeiro veículo</option>
+									<option value="What is your first pet name?">Qual é o seu primeiro nome de animal de estimação?</option>
+									<option value="What is your childood friend name?">Qual é o nome do seu melhor amigo?</option>
 								</select>
 								<br><br>
-								<label>Your Answer</label>
+								<label>Sua resposta</label>
 								<input type="text" class="form-control" placeholder="Enter your answer" required name="answer" /><br>
 								<center><input type="submit" value="Register" name="btn_doc" class="btn btn-danger">
 									<input type="button" value="Reset" onclick="rrset()" class="btn btn-warning">
